@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/dywongcloud/claude-code-proxy",
+  "commit": "c072e961d5ad5bab72dbb7594707e73fa89acad4",
+  "retrieved": "2026-10-05",
+  "method": "GitHub connector, files pinned to commit; shell clone failed due to DNS",
+  "snapshot": "dywongcloud-claude-code-proxy",
+  "license": "MIT",
+  "notes": "Source content retained without repairs. Git metadata is not included. apply_patch may normalize final newlines; use Git blob hashes for provenance, not MANIFEST.sha256 byte verification."
+}

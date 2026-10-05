@@ -1,0 +1,27 @@
+{
+  "bindAddress": "127.0.0.1",
+  "port": 18765,
+  "defaultProvider": "openai",
+  "aliasProvider": "openai",
+  "requestTimeoutMs": 120000,
+  "maxRequestBytes": 20971520,
+  "openai": {
+    "baseUrl": "https://api.openai.com/v1",
+    "defaultModel": "gpt-5.6-sol",
+    "reasoningEffort": "high",
+    "reasoningSummary": "auto",
+    "encryptedReasoning": true,
+    "serviceTier": "auto"
+  },
+  "moonshot": {
+    "baseUrl": "https://api.moonshot.ai/v1",
+    "defaultModel": "kimi-k3",
+    "reasoningEffort": "max",
+    "mergeSystemIntoUserForK3": false
+  },
+  "log": {
+    "verbose": false,
+    "stderr": true
+  }
+}
+

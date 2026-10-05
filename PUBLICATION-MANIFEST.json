@@ -1,0 +1,412 @@
+[
+  {
+    "path": ".gitignore",
+    "sha256": "30377c3fae970074a31f725f20c250ceddbb2343fd7b0291129035ff0421999e",
+    "bytes": 89
+  },
+  {
+    "path": "go.mod",
+    "sha256": "6a2abeb4cac3e5cf86b05aa01b2e693b12cf93dc41108969e056affb3d095ece",
+    "bytes": 23
+  },
+  {
+    "path": "LICENSE",
+    "sha256": "772892d7c7ae80d076526090d74be09ea8f784f3dbd6fd751813c054e29ffce7",
+    "bytes": 1076
+  },
+  {
+    "path": "README.md",
+    "sha256": "0ff92896627630f53b5a9b7263b0436583c4a8ccd7fec504cc0575358d29a2af",
+    "bytes": 12144
+  },
+  {
+    "path": "cmd/azupic/main.go",
+    "sha256": "04d7a32d5fb2f50b4cee6d0c698fc271a36a6934c7116883f29fbbe45eabd49e",
+    "bytes": 1176
+  },
+  {
+    "path": "internal/bridge/bridge_test.go",
+    "sha256": "ec742c741eeb9c49bab8a5809ae5493cbdc7212123fe9624cd33634df81e5b00",
+    "bytes": 15966
+  },
+  {
+    "path": "internal/bridge/config.go",
+    "sha256": "0f7393caa0f6c3dac22fe7d7c8ee17caccfef7cd6d85065f546c709457465e2f",
+    "bytes": 4599
+  },
+  {
+    "path": "internal/bridge/context_test.go",
+    "sha256": "7e256ac2d8e8c97ae5a91bd6cd17045647d6fe647773959af81b116338af6e69",
+    "bytes": 1690
+  },
+  {
+    "path": "internal/bridge/effort_test.go",
+    "sha256": "e98eff3a3f37638b0e29eb7415ca8da1621645c96a4f1de1c2fbc502a4cf2e5a",
+    "bytes": 1118
+  },
+  {
+    "path": "internal/bridge/output.go",
+    "sha256": "49d912264ab472107cf681822525b7883b91e36ebb5d1a519bee2da2cc400a72",
+    "bytes": 11650
+  },
+  {
+    "path": "internal/bridge/reasoning.go",
+    "sha256": "da18a4e1a533005054d43cb08e1427b126adb042bb6e39b76dfd0e4e9eed363c",
+    "bytes": 1586
+  },
+  {
+    "path": "internal/bridge/request.go",
+    "sha256": "5ff49cb49d1e477e5f63abd93aaac5015c0f74dd1372d0116c38e46c2edf9694",
+    "bytes": 11115
+  },
+  {
+    "path": "internal/bridge/roles_test.go",
+    "sha256": "63d420ec4a0f4194212ebab1be4ce59d1cb2de95b4fdb88280df7b6ba5971008",
+    "bytes": 1621
+  },
+  {
+    "path": "internal/bridge/server.go",
+    "sha256": "2aa00c8f967ff6856a10e2f4c885794178111fb61c7bbfcab72ba73414b43c1f",
+    "bytes": 7226
+  },
+  {
+    "path": "internal/bridge/sse.go",
+    "sha256": "fc70efa434f5f5c34893ea63da5ac74d5f672f446d62ae7e3329ed818edae9e8",
+    "bytes": 1477
+  },
+  {
+    "path": "docs/anthropic-azure-responses-contract.md",
+    "sha256": "f46b2c9361cf558515fbcca8f11b7137f9689453a6c5e8c564e98999d1983763",
+    "bytes": 27657
+  },
+  {
+    "path": "docs/fixtures/messages-responses-tool-cycle.json",
+    "sha256": "dac068e8a85a0212eb934b0aca0b5ad519b1e609992f6ec458910dd874611663",
+    "bytes": 10102
+  },
+  {
+    "path": "docs/fixtures/reference-observations.json",
+    "sha256": "56fb86bc1181b2086f128efe552a261c351b557b47c1f87032bde3984f0a2852",
+    "bytes": 1892
+  },
+  {
+    "path": "reference/SOURCE.json",
+    "sha256": "b1817daebeb9dfbcf332420dd2096d3666d46a6429b170df9b80125425129e6d",
+    "bytes": 512
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/.dockerignore",
+    "sha256": "39db478a3f54dc2da4f35f41bce5c403af212586586325f087499c1dfc533d4b",
+    "bytes": 59
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/.env.example",
+    "sha256": "63958d24f9394d2b8f3c65517ab161704aec99de432fca1b3029e9995144987c",
+    "bytes": 735
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/.github/workflows/ci.yml",
+    "sha256": "b515369f9be2526b63a6ccd1ca9b1cd88fe270ef82c7524d6c95265e874dca9e",
+    "bytes": 608
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/.gitignore",
+    "sha256": "5a957ca73f7b50cd2bdb458b0fd47d3d0b31a9f5b7d4189c282cb0deb367274f",
+    "bytes": 73
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/BUILD_INFO.json",
+    "sha256": "4eba2610bfaeb23a19edc944de8e93984d37989023ddb43b61a41ba586302c7c",
+    "bytes": 1904
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/CHANGELOG.md",
+    "sha256": "49096c554fb9189f650e8a351b31156488c9aa50e68ed4e2935cc2c77acbd5d9",
+    "bytes": 1727
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/Dockerfile",
+    "sha256": "09188353a4fc4b79a4d0707e003f7dbe9f39a812a964d92cabaee76e475334bb",
+    "bytes": 1127
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/LICENSE",
+    "sha256": "508901cb83d8b70fe55f1f6511a8633edb8929e262fd603e32fdf41fe7ec360b",
+    "bytes": 1134
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/MANIFEST.sha256",
+    "sha256": "5f6f630730ef85cf2835721717b82289d593575df02310e58f3868faddcae4ab",
+    "bytes": 4304
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/MIGRATION.md",
+    "sha256": "4f4443599eee0a6f284a47109fe3236a3fc22b8ce292b374c6f51ece8fc1648a",
+    "bytes": 1615
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/README.md",
+    "sha256": "3294c9eb05a1f460e054daa43a9ffd7efafbda336d3446117b1d55392299bb34",
+    "bytes": 16312
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/SECURITY.md",
+    "sha256": "e78c1201e745bfb7a51298e00f1951e33289b47c845f07914e4e1d3ad3004266",
+    "bytes": 2909
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/UPSTREAM.md",
+    "sha256": "c0f768dabb6deef6567debd5f87f22171a9ccabeba216df7a75f3e8e8ac1a53a",
+    "bytes": 774
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/bin/claude-code-proxy.js",
+    "sha256": "b521770253c45918a51de98f99c67e08523f00d32347aeccfaede59395365cb3",
+    "bytes": 112
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/config.example.json",
+    "sha256": "4ec454d253325eea403987d6d0330dc41e435f16731b47d499c62b1e86cfc601",
+    "bytes": 613
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/docker-compose.yml",
+    "sha256": "9b862f2f9c12dfe6d0ff0d24b93d1d575d1d8e698ef31f1dc382fa9f097e8cb5",
+    "bytes": 1127
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/package-lock.json",
+    "sha256": "ff0a8deb401406fd043c160d5f2ff53c6325f0c15bd82d41d3325219b917faaf",
+    "bytes": 388
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/package.json",
+    "sha256": "a211c72750908547a0c64311f95834307588b491ec3125a1ca6a1bb0429d3b3d",
+    "bytes": 856
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/scripts/check.mjs",
+    "sha256": "f08afe40fbc5f2267838788e99937037bfb5b47b7709a96ff4019e736609c69e",
+    "bytes": 1078
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/scripts/install.ps1",
+    "sha256": "3aaf0cddfc99a44b313e2cd7d3e23eae53dffbf62c4835caa424f22a84d5cc3b",
+    "bytes": 1350
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/scripts/install.sh",
+    "sha256": "fba58e23a075baa6f2aad22c41d12ad3979df710befc2e8084c903a6fca09de4",
+    "bytes": 1124
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/scripts/run-moonshot.sh",
+    "sha256": "b3c28a0287d9d6d59bcf25d95a1f523a794308880702cbdea7c0077f84b3faa2",
+    "bytes": 550
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/scripts/run-openai.sh",
+    "sha256": "0946cfe16ebcdb69fa75bd80454969680719cf1d4685de6629a8cd4765e19315",
+    "bytes": 555
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/scripts/uninstall.ps1",
+    "sha256": "32fa29c5aa2ee1176c6d52137bd6421db30d63650772387d7382f1cab33198c6",
+    "bytes": 398
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/scripts/uninstall.sh",
+    "sha256": "351c890fc506c023dc7aa0dfb5d32421bdec5a10dfe8f48b6f4445de6b449d44",
+    "bytes": 273
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/anthropic.js",
+    "sha256": "662b10bb54e0ef9d2648c2aeedc30feb375f1cd615b61963eb9eae186859c96f",
+    "bytes": 16603
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/auth-store.js",
+    "sha256": "736a61b5faf0a48116879493c88d813cf9aa37dbf8cdced282e09bba4bfd73e0",
+    "bytes": 7380
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/cli.js",
+    "sha256": "7163afb6240171a801ff4f30a4d6900b1c79682289e9ccf324805ce5929c4b55",
+    "bytes": 13864
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/config.js",
+    "sha256": "d50b30cbe96c8f539f3c6699a3b3a70528a4c00eb6e7e7f3dc2f8c8853b94e02",
+    "bytes": 11843
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/errors.js",
+    "sha256": "040d5453a670d1d0c4890729f8d4d6e88d11efa07b799383b9ec44831da78a78",
+    "bytes": 3775
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/http.js",
+    "sha256": "cc861dfd5aec739da94edbb459ed5f557882b164cf2a3be551419e10067afb3d",
+    "bytes": 7814
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/logging.js",
+    "sha256": "13a2ba50fc1a8401075ee1364a953ac32ef60f3b97dc573997468f53443c33ca",
+    "bytes": 2566
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/monitor-store.js",
+    "sha256": "95576757cb8bb4f0bb8658210d48165ad563f7321de090a2d9a622a0a5a8632b",
+    "bytes": 14586
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/paths.js",
+    "sha256": "8e83e9d885a3111d63b7c91f5e602b83e1fdf2294087486f5cefd6ead80617a8",
+    "bytes": 1805
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/providers/anthropic.js",
+    "sha256": "950d17255fd9ce2efd00a700acb442c1905c44f1aea6c8a89fb12d7eedd49b27",
+    "bytes": 12584
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/providers/common.js",
+    "sha256": "74eb2b2c2f542395fd6227d41978a06529757b84db972bab154ffb754a6a5960",
+    "bytes": 3864
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/providers/moonshot.js",
+    "sha256": "8e5c5526199fcd5ad40216ca3aea68f5cfaaf0c4e2cbb25f6d59876e8988613c",
+    "bytes": 17862
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/providers/openai.js",
+    "sha256": "21eda068f72f089711cb33ee919fae7027c53a02b28759ece27976cdeb0a4974",
+    "bytes": 24040
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/reasoning-signature.js",
+    "sha256": "fc274ba967aa759f7b54ea991cd82f7212ffd7ab885546335b3a11a6429a77ac",
+    "bytes": 2859
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/router.js",
+    "sha256": "8eb79b762597fc1c686e6f17c0624876c0665611a53c8f28795df4fdb44cabb5",
+    "bytes": 3577
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/server.js",
+    "sha256": "482a057f611c125d303ac6eda41c176b21197d9d08f2fee89734057cb9250870",
+    "bytes": 23060
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/sse.js",
+    "sha256": "d32fd2cffd22a5cccd79f7b74ec519bcf6fe30ab73efd2bd960483ea037b0068",
+    "bytes": 3853
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/tokens.js",
+    "sha256": "3e9616b1ca206d13b946c002c5817423af3b21234ab55566ab30455fcfa6f506",
+    "bytes": 2951
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/tui.js",
+    "sha256": "719496d589b0bfb0744673cf8afb79f787a9547acb06ced043ad2fe577893ab8",
+    "bytes": 12079
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/util.js",
+    "sha256": "12adb415a5c4ca4672ae923d46c17a77cb8a2128ab5c11dc8dffc211e2c9ec8c",
+    "bytes": 3240
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/src/version.js",
+    "sha256": "b133e28c6539fe305799abcf4e3165e904642971618a62bb3b6dfa4416b5c54c",
+    "bytes": 33
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/test/anthropic-tokens.test.js",
+    "sha256": "c187c2ea523a8e903ad502db08cc9339fa9963525b37a4e4a9a67da06719064b",
+    "bytes": 3309
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/test/anthropic-validation.test.js",
+    "sha256": "1c8f084d09078e7705c6c6616aa68d27d83aa5987cb3a7a4eb93f5925a7365a1",
+    "bytes": 2703
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/test/config-auth.test.js",
+    "sha256": "fbb62b83564e1dca1fc5ffa2f86687eb61b6a156b654e913d2e99055dff5c763",
+    "bytes": 5770
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/test/helpers.js",
+    "sha256": "f8f154f8279d16ca67dbc7f38bb38edc76c34e88e73cf00d0c2bb6911033e0af",
+    "bytes": 1227
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/test/http-errors.test.js",
+    "sha256": "00a9dbec686b0dae14d17314365b8e1ddd5e80d07cf8c35b87a24e3612e39d39",
+    "bytes": 5349
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/test/monitor.test.js",
+    "sha256": "f95b3da0e6befa095074e0ca8020cc4331ebfac8526a5efe9fdf30a70da91199",
+    "bytes": 5260
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/test/moonshot.test.js",
+    "sha256": "8769e4f9438a7521731bf7210544694ff8fd7edb11ebf6530d9d46a3ba42297d",
+    "bytes": 6800
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/test/openai.test.js",
+    "sha256": "669b5cf1cca85e2fddb449e6d5e1698c64e382baf53be6b91ef27aae27fc9dd4",
+    "bytes": 9645
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/test/router.test.js",
+    "sha256": "8ac3c0052d891a83c0f75845f05a7331d9c05a564d0dea3d0133b2405226db8a",
+    "bytes": 2048
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/test/server.integration.test.js",
+    "sha256": "c58dfffb364abf085e068a14fb0962ac7665b20aa72b6062f6ae0e47ba3753ce",
+    "bytes": 14365
+  },
+  {
+    "path": "reference/dywongcloud-claude-code-proxy/test/tokenhub.test.js",
+    "sha256": "677bbdde9f9673d2f24df4b8cb773bc5c33ab4513497ba02c8234c35c7d45b3a",
+    "bytes": 9315
+  },
+  {
+    "path": "scripts/bash-integration.sh",
+    "sha256": "f7629be89c3b435679f21ba8c5f7b57f3da17707d5b09db44a94f8090969ab9a",
+    "bytes": 641
+  },
+  {
+    "path": "scripts/inspect-reference-contract.mjs",
+    "sha256": "ade0e58b48ef50f8797233297f34459722aa02494b4bbb6cead5edc898490630",
+    "bytes": 6319
+  },
+  {
+    "path": "scripts/prepare-publication.py",
+    "sha256": "e76ee9de8c5e1f5fd7391c0fe05913b832b743b985b0ea7287fea5de8d213874",
+    "bytes": 4206
+  },
+  {
+    "path": "scripts/publish-github.sh",
+    "sha256": "f2d44720317fb09875bde9617fa0d69182aa2b0af467d3432c3c8c69b30fde52",
+    "bytes": 1699
+  },
+  {
+    "path": "scripts/run-claude.sh",
+    "sha256": "c758f57724c3c627e49e2a18f1f4cc73cc3103377dae035673b4ba15db541d3d",
+    "bytes": 2139
+  },
+  {
+    "path": ".github/workflows/ci.yml",
+    "sha256": "de685070b843d9a10deb45f9491d03876f42b96ceae4d97803de8c3d6d5443a4",
+    "bytes": 367
+  }
+]

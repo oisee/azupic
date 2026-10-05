@@ -1,0 +1,10 @@
+/bin/
+/.local/
+/.env
+/.env.*
+!/.env.example
+/HANDOVER.md
+/.aws/
+/.codex/
+/.agents/
+*.log

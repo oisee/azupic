@@ -1,0 +1,47 @@
+{
+  "artifact": "claude-code-proxy-openai-moonshot-api-key-edition",
+  "version": "1.0.1",
+  "builtAtUtc": "2026-08-21T02:43:57Z",
+  "builtAtAmericaLosAngeles": "2026-08-20T19:43:57-07:00",
+  "runtime": {
+    "node": "v22.16.0",
+    "npm": "10.9.2",
+    "minimumNode": "20.12.0"
+  },
+  "upstream": {
+    "repository": "raine/claude-code-proxy",
+    "inspectedCommit": "dc61029dfdea54fda7367d064885aaceb8d1ac80",
+    "inspectedRelease": "v0.1.35",
+    "inspectionDate": "2026-08-19"
+  },
+  "implementation": {
+    "kind": "clean API-key-focused edition of the upstream local Anthropic-compatible endpoint contract",
+    "providers": [
+      "OpenAI Platform Responses API",
+      "Moonshot OpenAI-compatible Chat Completions API / Kimi K3"
+    ],
+    "runtimeDependencies": 0
+  },
+  "validation": {
+    "syntaxAndJson": "passed: 34 source/script/test files plus package, lock, example-config, and build-info JSON manifests",
+    "tests": {
+      "passed": 35,
+      "failed": 0,
+      "skipped": 0
+    },
+    "coverage": {
+      "linesPercent": 84.5,
+      "branchesPercent": 68.07,
+      "functionsPercent": 85.63
+    },
+    "npmAuditProduction": "0 vulnerabilities",
+    "secretPatternScan": "no embedded live API keys or private keys found; test credentials are synthetic fixtures",
+    "livePaidProviderCalls": "not run; deterministic mock upstreams used",
+    "dockerBuild": "not run because Docker is unavailable in the build environment",
+    "archiveRoundTripPreflight": "passed: ZIP extracted into a clean directory; manifest, syntax checks, 35 tests, CLI smoke, installer smoke, and production audit all passed",
+    "archiveFileCount": 51,
+    "internalManifest": "MANIFEST.sha256 covers every project file except the manifest itself",
+    "regression": "Claude Code inline system/developer messages are accepted, hoisted, and verified through both OpenAI and Moonshot end-to-end mocks"
+  }
+}
+

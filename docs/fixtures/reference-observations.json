@@ -1,0 +1,93 @@
+{
+  "nativeServerTool": [
+    {
+      "type": "function",
+      "name": "web_search",
+      "strict": false
+    }
+  ],
+  "ignoredFields": {
+    "model": "gpt-6.1-sol",
+    "instructions": "Inspect files before editing.",
+    "input": [
+      {
+        "type": "message",
+        "role": "user",
+        "content": [
+          {
+            "type": "input_text",
+            "text": "Read /tmp/example.txt and explain it."
+          }
+        ]
+      }
+    ],
+    "include": [
+      "reasoning.encrypted_content"
+    ],
+    "tools": [
+      {
+        "type": "function",
+        "name": "Read",
+        "description": "Read a local file",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "file_path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "file_path"
+          ]
+        },
+        "strict": false
+      }
+    ],
+    "tool_choice": "auto",
+    "parallel_tool_calls": false,
+    "max_output_tokens": 4096,
+    "stream": true,
+    "store": false,
+    "reasoning": {
+      "effort": "high",
+      "summary": "auto"
+    }
+  },
+  "thinkingDisabledReasoning": null,
+  "malformedArguments": {
+    "_raw": "{broken"
+  },
+  "usage": {
+    "input_tokens": 100,
+    "output_tokens": 20,
+    "cache_read_input_tokens": 60,
+    "cache_creation_input_tokens": 0
+  },
+  "urlWithQuery": "https://example.openai.azure.com/openai?api-version=2025-04-01-preview/responses",
+  "crlfSingleChunk": [
+    {
+      "event": "demo",
+      "data": "{\"x\":1}"
+    }
+  ],
+  "crlfSplitAfterCR": [
+    {
+      "event": "message",
+      "data": "{\"x\":1}"
+    }
+  ],
+  "unknownOutputItem": [
+    {
+      "type": "usage",
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "type": "message_done",
+      "stopReason": "end_turn"
+    }
+  ]
+}

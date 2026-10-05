@@ -1,0 +1,33 @@
+services:
+  claude-code-proxy:
+    build: .
+    image: claude-code-proxy-openai-moonshot:1.0.1
+    restart: unless-stopped
+    environment:
+      CCP_OPENAI_API_KEY: ${CCP_OPENAI_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      CCP_MOONSHOT_API_KEY: ${CCP_MOONSHOT_API_KEY:-}
+      MOONSHOT_API_KEY: ${MOONSHOT_API_KEY:-}
+      CCP_OPENAI_BASE_URL: ${CCP_OPENAI_BASE_URL:-https://api.openai.com/v1}
+      CCP_MOONSHOT_BASE_URL: ${CCP_MOONSHOT_BASE_URL:-https://api.moonshot.ai/v1}
+      CCP_OPENAI_DEFAULT_MODEL: ${CCP_OPENAI_DEFAULT_MODEL:-gpt-5.6-sol}
+      CCP_MOONSHOT_DEFAULT_MODEL: ${CCP_MOONSHOT_DEFAULT_MODEL:-kimi-k3}
+      CCP_PROXY_AUTH_TOKEN: ${CCP_PROXY_AUTH_TOKEN:?Set CCP_PROXY_AUTH_TOKEN to a long random local token}
+      CCP_LOG_STDERR: "1"
+    ports:
+      - "127.0.0.1:${PORT:-18765}:18765"
+    volumes:
+      - ccp-config:/home/node/.config/claude-code-proxy
+      - ccp-state:/home/node/.local/state/claude-code-proxy
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+volumes:
+  ccp-config:
+  ccp-state:
+
