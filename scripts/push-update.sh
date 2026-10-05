@@ -11,6 +11,7 @@ cd "$azupic_stage/repository"
 # Update our files; retain the upstream reference and unrelated remote files.
 cp "$azupic_stage/snapshot/"README*.md .
 cp "$azupic_stage/snapshot/.gitignore" .
+cp "$azupic_stage/snapshot/go.mod" .
 for azupic_directory in cmd internal scripts .github; do
     cp -R "$azupic_stage/snapshot/$azupic_directory/." "$azupic_directory/"
 done
@@ -21,10 +22,10 @@ go test -race ./...
 go vet ./...
 git config --local user.name 'Alice Vinogradova'
 git config --local user.email 'ooisee@gmail.com'
-git add -- README*.md .gitignore cmd internal scripts .github docs/release-notes.md PUBLICATION-MANIFEST.json
+git add -- README*.md .gitignore go.mod cmd internal scripts .github docs/release-notes.md PUBLICATION-MANIFEST.json
 git diff --cached --check
 if git diff --cached --quiet; then echo 'No changes to push.'; exit 0; fi
-git commit -m 'Add README translations and Bash/PowerShell provider switching'
+git commit -m 'Fix Go toolchain version and verify minimum Go in CI'
 git_https push origin main
 echo 'Updated https://github.com/oisee/azupic — existing release unchanged.'
 echo "Checkout: $azupic_stage/repository"

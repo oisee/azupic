@@ -6,8 +6,8 @@
   },
   {
     "path": "go.mod",
-    "sha256": "6a2abeb4cac3e5cf86b05aa01b2e693b12cf93dc41108969e056affb3d095ece",
-    "bytes": 23
+    "sha256": "987734872fe762fea7bcab0ce8ab9d0acf30bbac6e4c7ed1e200e3a01d3dcdf7",
+    "bytes": 25
   },
   {
     "path": "LICENSE",
@@ -446,8 +446,8 @@
   },
   {
     "path": "scripts/push-update.sh",
-    "sha256": "361b2bf0217a5e395b18f22765962d299a96d00c57a1f9841b1e98727762e8f4",
-    "bytes": 1541
+    "sha256": "80821ff61c35e3fb3f1ad7f8d0df97755fe002cc2c8e21c3d3fa14a5c1edbbf1",
+    "bytes": 1575
   },
   {
     "path": "scripts/run-claude.sh",
@@ -456,8 +456,8 @@
   },
   {
     "path": ".github/workflows/ci.yml",
-    "sha256": "ce80464e43e341c716617d9f8824ec4d22d8fa716b0951bb5751d594c5c98b8c",
-    "bytes": 722
+    "sha256": "f680e3023cd6923fb177958fe933315f9a9be8e4bb15c9d733b1d0c8f035cd18",
+    "bytes": 988
   },
   {
     "path": ".github/workflows/release.yml",
