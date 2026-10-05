@@ -14,9 +14,11 @@ if git_https ls-remote --exit-code --tags origin "refs/tags/$azupic_tag" >/dev/n
     echo 'Tag already exists; refusing to replace a release.' >&2
     exit 1
 fi
-azupic_paths=(README.md README.RU.md .gitignore cmd/azupic/main.go
+azupic_paths=(README.md README.RU.md README.UK.md README.SK.md README.DA.md README.BE.md .gitignore cmd/azupic/main.go
     .github/workflows/ci.yml .github/workflows/release.yml
     scripts/prepare-publication.py scripts/build-release.py scripts/publish-release.sh
+    scripts/powershell-integration.ps1
+    scripts/bash-integration.sh scripts/run-claude.sh internal/bridge/server.go
     docs/release-notes.md)
 for azupic_path in "${azupic_paths[@]}"; do
     mkdir -p "$(dirname -- "$azupic_path")"

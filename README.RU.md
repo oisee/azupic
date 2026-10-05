@@ -1,12 +1,12 @@
 # azupic
 
-[English version](README.md)
+[English](README.md) · [Русский](README.RU.md) · [Українська](README.UK.md) · [Slovenčina](README.SK.md) · [Dansk](README.DA.md) · [Беларуская](README.BE.md)
 
 **azupic** — небольшой Go-мост между Anthropic Messages API, используемым Claude Code, и Azure OpenAI Responses API. Один бинарник, стандартная библиотека Go, явный endpoint и deployment. Версия 0.1 проверена mock-тестами и короткой реальной беседой Claude Code через Azure Responses с thinking и повторными ходами. Исполнение локальных tools, интерактивное переключение effort и compaction пока проверены только частично или ожидают live-проверки.
 
 ## Загрузка и релизы
 
-Готовые бинарники для Linux, macOS и Windows, для каждой системы — amd64 и arm64, доступны в [GitHub Releases](https://github.com/oisee/azupic/releases). Скачайте архив и `checksums.txt`. В архиве находятся бинарник, лицензия и обе версии README. Бинарники macOS и Windows не подписаны.
+Готовые бинарники для Linux, macOS и Windows, для каждой системы — amd64 и arm64, доступны в [GitHub Releases](https://github.com/oisee/azupic/releases). Скачайте архив и `checksums.txt`. В архиве находятся бинарник, лицензия и все языковые версии README. Бинарники macOS и Windows не подписаны.
 
 Локальная сборка всех шести: `python3 scripts/build-release.py v0.1.0`, результат — в `dist/`. CI собирает такие же архивы для push и pull request. При push тега версии workflow выполняет тесты, сборку и проверку checksums, загружает архивы в draft и публикует релиз только после успешной загрузки всех файлов. Также доступен ручной запуск для существующего тега.
 

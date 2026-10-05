@@ -80,6 +80,7 @@ func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 	req, err := Translate(m, s.Config)
 	if err != nil {
+		s.Log.Warn("request rejected", "status", 400, "reason", err.Error())
 		writeError(w, 400, "invalid_request_error", err.Error())
 		return
 	}

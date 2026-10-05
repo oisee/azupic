@@ -16,13 +16,33 @@
   },
   {
     "path": "README.md",
-    "sha256": "ab84a393dfaa94d0d54aca7dc2a0852cb8ff46228d261cec60c21055c72da3e2",
-    "bytes": 9404
+    "sha256": "1f0d7a431811a13bc1c9d168dd3ba0d49be0cacbfddaee51dc137bb950a8de88",
+    "bytes": 11241
   },
   {
     "path": "README.RU.md",
-    "sha256": "def6f4eeca54f02ff00ef3b8d3136ebfb696461836ac0cbd0f651d87cd6740d1",
-    "bytes": 13205
+    "sha256": "9e4a6db814a0491be956fdaf08ce68e3bb06db3e6a1e9d3d71fd578db7a14ad9",
+    "bytes": 13384
+  },
+  {
+    "path": "README.UK.md",
+    "sha256": "95ba22989e54ba8d1fbd8bc53cf8fbe80f7d0af549e390b5752357b40890ce25",
+    "bytes": 14035
+  },
+  {
+    "path": "README.SK.md",
+    "sha256": "dcfc4181f1bae7043b3ed5f12c5fa02a092295e9496eff057e6c4927bfebf0ea",
+    "bytes": 9983
+  },
+  {
+    "path": "README.DA.md",
+    "sha256": "e2ccdfa1f0e8df86da0f4f902d49498af00e45e55cf337c76190b6c0f5f9acec",
+    "bytes": 10069
+  },
+  {
+    "path": "README.BE.md",
+    "sha256": "448049b28c4cf7d411438ba71e6b14e299e92845a2a15db3ec582448392754da",
+    "bytes": 14039
   },
   {
     "path": "cmd/azupic/main.go",
@@ -71,8 +91,8 @@
   },
   {
     "path": "internal/bridge/server.go",
-    "sha256": "2aa00c8f967ff6856a10e2f4c885794178111fb61c7bbfcab72ba73414b43c1f",
-    "bytes": 7226
+    "sha256": "2b4db29fae0eb54f8d04a87fe64ac79c60c3d38afbff6d0cc2f3cde660a74c25",
+    "bytes": 7297
   },
   {
     "path": "internal/bridge/sse.go",
@@ -96,8 +116,8 @@
   },
   {
     "path": "docs/release-notes.md",
-    "sha256": "c5b741b4f2b05dfccf68128b90920f40351629ea6d3d61887874a0dd4b1cd172",
-    "bytes": 1340
+    "sha256": "966792e3f472513b081dc672c57f2dba189759a23dfff314425bbe13c4afd37b",
+    "bytes": 1383
   },
   {
     "path": "reference/SOURCE.json",
@@ -391,13 +411,13 @@
   },
   {
     "path": "scripts/bash-integration.sh",
-    "sha256": "f7629be89c3b435679f21ba8c5f7b57f3da17707d5b09db44a94f8090969ab9a",
-    "bytes": 641
+    "sha256": "9a20ec6279e85c5b7f82286e0b614d8827a261822af992b2744abc4898332631",
+    "bytes": 1630
   },
   {
     "path": "scripts/build-release.py",
-    "sha256": "6c4dac0869ea790b3b0fb6428fb43632f6bb0119bca04fbcb3725fb939c4b21c",
-    "bytes": 2951
+    "sha256": "51a91e912d413075d506147de1d7ee32e6123c7b426f0827d5d1821ef5649666",
+    "bytes": 3171
   },
   {
     "path": "scripts/inspect-reference-contract.mjs",
@@ -405,9 +425,14 @@
     "bytes": 6319
   },
   {
+    "path": "scripts/powershell-integration.ps1",
+    "sha256": "786e786e81ca12e2e7fd7dd71b56a069d95b0d0b6e633151e2a90b24b6d8a052",
+    "bytes": 2715
+  },
+  {
     "path": "scripts/prepare-publication.py",
-    "sha256": "a92764eda7068382be9ebe5ecea4c95c873ad37a70d3c645dfeeb455109f8494",
-    "bytes": 4230
+    "sha256": "84eb074629cb75ebcf12eefaae2ad3c648fdf2ef302b6881242a95cf7424bc1c",
+    "bytes": 4294
   },
   {
     "path": "scripts/publish-github.sh",
@@ -416,13 +441,18 @@
   },
   {
     "path": "scripts/publish-release.sh",
-    "sha256": "61792bcad7fbe378e28c535646375217de7fa4434eea06c8ba627da5e06e71d0",
-    "bytes": 2099
+    "sha256": "506e1d46c92d9205d44348d218d40e1f9ca7b3a29fb90c8fb8836aaf1a13a732",
+    "bytes": 2270
+  },
+  {
+    "path": "scripts/push-update.sh",
+    "sha256": "361b2bf0217a5e395b18f22765962d299a96d00c57a1f9841b1e98727762e8f4",
+    "bytes": 1541
   },
   {
     "path": "scripts/run-claude.sh",
-    "sha256": "c758f57724c3c627e49e2a18f1f4cc73cc3103377dae035673b4ba15db541d3d",
-    "bytes": 2139
+    "sha256": "9dfa6c30cdcc1c1306d5891aeabd96cfc4619acde090cb2ec7f179fa28a0ef23",
+    "bytes": 2148
   },
   {
     "path": ".github/workflows/ci.yml",

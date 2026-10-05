@@ -37,7 +37,10 @@ def main():
                         '-o', str(binary), './cmd/azupic'], cwd=ROOT,
                        env=environment, check=True)
         files = [(binary_name, binary.read_bytes(), 0o755)]
-        for path in ('LICENSE', 'README.md', 'README.RU.md'):
+        for path in ('LICENSE', 'README.md', 'README.RU.md', 'README.UK.md', 'README.SK.md', 'README.DA.md', 'README.BE.md'):
+            files.append((path, (ROOT / path).read_bytes(), 0o644))
+        if system == 'windows':
+            path = 'scripts/powershell-integration.ps1'
             files.append((path, (ROOT / path).read_bytes(), 0o644))
         if system == 'windows':
             archive = output / (name + '.zip')

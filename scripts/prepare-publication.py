@@ -10,7 +10,7 @@ import re
 import shutil
 
 ROOT = Path(__file__).resolve().parent.parent
-FILES = ('.gitignore', 'go.mod', 'LICENSE', 'README.md', 'README.RU.md')
+FILES = ('.gitignore', 'go.mod', 'LICENSE', 'README.md', 'README.RU.md', 'README.UK.md', 'README.SK.md', 'README.DA.md', 'README.BE.md')
 DIRS = ('cmd', 'internal', 'docs', 'reference', 'scripts', '.github')
 
 

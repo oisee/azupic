@@ -8,7 +8,7 @@ Initial release of the Go bridge from Claude Code's Anthropic Messages API to Az
 - Loopback defaults, bounded requests and responses, and no automatic generation retries.
 - Standalone binaries for Linux, macOS and Windows on amd64 and arm64, with SHA-256 checksums.
 
-Download `.tar.gz` for Linux/macOS or `.zip` for Windows. Each archive contains the binary, MIT license and English/Russian READMEs. Verify it against `checksums.txt` before use. macOS binaries are unsigned and not notarized; Windows binaries are unsigned.
+Download `.tar.gz` for Linux/macOS or `.zip` for Windows. Each archive contains the binary, MIT license and English, Russian, Ukrainian, Slovak, Danish and Belarusian READMEs. Verify it against `checksums.txt` before use. macOS binaries are unsigned and not notarized; Windows binaries are unsigned.
 
 Go is needed only to build from source. Configure `AZURE_RESPONSES_URL`, `AZURE_OPENAI_API_KEY` and `AZURE_DEPLOYMENT` (or `AZURE_OPENAI_DEPLOYMENT`), then start the binary. Point Claude Code's `ANTHROPIC_BASE_URL` at the bridge.
 

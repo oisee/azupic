@@ -1,12 +1,12 @@
 # azupic
 
-[Русская версия](README.RU.md)
+[English](README.md) · [Українська](README.UK.md) · [Slovenčina](README.SK.md) · [Dansk](README.DA.md) · [Беларуская](README.BE.md)
 
 **azupic** is a small Go bridge from the Anthropic Messages API used by Claude Code to Azure OpenAI Responses. One binary, the Go standard library, an explicit endpoint and deployment. Version 0.1 has been tested with local mocks and a short real Claude Code conversation through Azure Responses, including thinking and follow-up turns. Local tool execution, interactive effort changes and compaction still need further live validation.
 
 ## Downloads and releases
 
-Prebuilt binaries are provided for Linux, macOS and Windows, each on amd64 and arm64. Download an archive and `checksums.txt` from [GitHub Releases](https://github.com/oisee/azupic/releases). Archives contain the binary, license and both READMEs. macOS and Windows binaries are unsigned.
+Prebuilt binaries are provided for Linux, macOS and Windows, each on amd64 and arm64. Download an archive and `checksums.txt` from [GitHub Releases](https://github.com/oisee/azupic/releases). Archives contain the binary, license and all README translations. macOS and Windows binaries are unsigned.
 
 Build all six locally with `python3 scripts/build-release.py v0.1.0`; output goes to `dist/`. CI builds the same archives on pushes and pull requests. Pushing a version tag runs tests, builds and checksums all targets, uploads to a draft release and publishes after every upload succeeds. The workflow can also be dispatched for an existing tag.
 
@@ -31,7 +31,7 @@ In another terminal:
 ANTHROPIC_BASE_URL=http://127.0.0.1:8080 \
 ANTHROPIC_AUTH_TOKEN=local-azupic \
 ENABLE_TOOL_SEARCH=false \
-claude --model azupic
+claude --model claude-opus-5-5
 ```
 
 By default, every incoming model name maps to `AZURE_DEPLOYMENT`. You do not need to name an Azure model after a Claude model or append `[1m]`. If Claude Code uses another authentication mode or provider, use a separate client profile with explicit authentication for the local endpoint. Avoid setting both `ANTHROPIC_API_KEY` and `ANTHROPIC_AUTH_TOKEN`.
@@ -82,11 +82,33 @@ Azure HTTP errors preserve the status and `Retry-After`, without forwarding the 
 
 ## Change reasoning effort
 
+The launchers present `claude-opus-5-5` to Claude Code so it uses a known model catalog entry. Azure still receives the configured deployment (by default `gpt-6.1-sol`). This client name does not turn the upstream model into Opus, establish its context window, or prove auto-mode classifier compatibility.
+
 To launch from any directory, add `source /path/to/azupic/scripts/bash-integration.sh` to `~/.bashrc`. Reload your shell to use `claude-az`, for example `claude-az --effort high`. It starts the bridge and Claude in your current working directory and clears inherited provider settings in a subshell, preserving the parent terminal's environment.
 
 The launcher enables `CLAUDE_CODE_ALWAYS_ENABLE_EFFORT=1` for the custom `azupic` model and unsets fixed `CLAUDE_CODE_EFFORT_LEVEL` so it does not override interactive changes. Start with `bash scripts/run-claude.sh --effort high`. During a session, use `/effort low`, `/effort medium`, `/effort high` or `/effort xhigh`. The new value applies to the next request without restarting azupic. Your Azure deployment must support the selected level.
 
 Claude `max` maps to Azure `xhigh`; other levels pass through. `/effort auto` clears the client selection: the bridge uses its startup `REASONING_EFFORT`, if set, or Azure's default. `.local/azupic.log` records `generation request` with `reasoning_effort`. Effort changes do not alter the reasoning signature scope. Interactive effort transmission from the real Claude client still needs confirmation in these logs.
+
+## PowerShell provider switching
+
+Dot-source `scripts/powershell-integration.ps1` from your PowerShell profile to add `claude-az` together with `claude-a` and `claude-z`:
+
+```powershell
+# Add this line to $PROFILE, using your actual install path:
+. "C:\Tools\azupic\scripts\powershell-integration.ps1"
+```
+
+Place `azupic.exe` in the installation's `bin` directory. Windows release archives include the integration script. Set `AZURE_RESPONSES_URL` and `AZURE_OPENAI_API_KEY` before launching. Set `AZURE_OPENAI_DEPLOYMENT` (or `AZURE_DEPLOYMENT`) to your deployment name.
+
+```powershell
+claude-az --effort high  # Azure through azupic
+# Exit Claude before starting another provider:
+claude-z                # Your existing Z.ai function
+claude-a                # Your existing Anthropic function
+```
+
+`claude-az` starts the local bridge in the background, checks that it has not exited and launches Claude in your current directory. It stops its own bridge when Claude exits. Like a simple provider-switching function, it leaves client variables in the current shell; your other provider functions should clear `ANTHROPIC_API_KEY`, `ENABLE_TOOL_SEARCH` and `CLAUDE_CODE_ALWAYS_ENABLE_EFFORT` when switching back. It does not modify persistent user or machine environment variables. Do not run multiple `claude-az` sessions on the same default port. The script has not yet been tested on Windows.
 
 ## Checks
 

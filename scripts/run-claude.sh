@@ -49,4 +49,4 @@ if [[ "$azupic_ready" != true ]]; then
   exit 1
 fi
 echo "azupic → $AZURE_OPENAI_DEPLOYMENT; лог: $azupic_log" >&2
-claude --model azupic "$@"
+claude --model claude-opus-5-5 "$@"
