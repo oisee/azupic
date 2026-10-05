@@ -1,8 +1,8 @@
 [
   {
     "path": ".gitignore",
-    "sha256": "30377c3fae970074a31f725f20c250ceddbb2343fd7b0291129035ff0421999e",
-    "bytes": 89
+    "sha256": "faabd5a0b121b78d0d4584786c4bec294e6e45dcba3efae72ac6028fa04af78b",
+    "bytes": 96
   },
   {
     "path": "go.mod",
@@ -16,13 +16,18 @@
   },
   {
     "path": "README.md",
-    "sha256": "0ff92896627630f53b5a9b7263b0436583c4a8ccd7fec504cc0575358d29a2af",
-    "bytes": 12144
+    "sha256": "ab84a393dfaa94d0d54aca7dc2a0852cb8ff46228d261cec60c21055c72da3e2",
+    "bytes": 9404
+  },
+  {
+    "path": "README.RU.md",
+    "sha256": "def6f4eeca54f02ff00ef3b8d3136ebfb696461836ac0cbd0f651d87cd6740d1",
+    "bytes": 13205
   },
   {
     "path": "cmd/azupic/main.go",
-    "sha256": "04d7a32d5fb2f50b4cee6d0c698fc271a36a6934c7116883f29fbbe45eabd49e",
-    "bytes": 1176
+    "sha256": "155249f99178ff13298846a33e2538918d963d78f2853112903a0f0f812d9226",
+    "bytes": 1204
   },
   {
     "path": "internal/bridge/bridge_test.go",
@@ -88,6 +93,11 @@
     "path": "docs/fixtures/reference-observations.json",
     "sha256": "56fb86bc1181b2086f128efe552a261c351b557b47c1f87032bde3984f0a2852",
     "bytes": 1892
+  },
+  {
+    "path": "docs/release-notes.md",
+    "sha256": "c5b741b4f2b05dfccf68128b90920f40351629ea6d3d61887874a0dd4b1cd172",
+    "bytes": 1340
   },
   {
     "path": "reference/SOURCE.json",
@@ -385,19 +395,29 @@
     "bytes": 641
   },
   {
+    "path": "scripts/build-release.py",
+    "sha256": "6c4dac0869ea790b3b0fb6428fb43632f6bb0119bca04fbcb3725fb939c4b21c",
+    "bytes": 2951
+  },
+  {
     "path": "scripts/inspect-reference-contract.mjs",
     "sha256": "ade0e58b48ef50f8797233297f34459722aa02494b4bbb6cead5edc898490630",
     "bytes": 6319
   },
   {
     "path": "scripts/prepare-publication.py",
-    "sha256": "e76ee9de8c5e1f5fd7391c0fe05913b832b743b985b0ea7287fea5de8d213874",
-    "bytes": 4206
+    "sha256": "a92764eda7068382be9ebe5ecea4c95c873ad37a70d3c645dfeeb455109f8494",
+    "bytes": 4230
   },
   {
     "path": "scripts/publish-github.sh",
     "sha256": "f2d44720317fb09875bde9617fa0d69182aa2b0af467d3432c3c8c69b30fde52",
     "bytes": 1699
+  },
+  {
+    "path": "scripts/publish-release.sh",
+    "sha256": "61792bcad7fbe378e28c535646375217de7fa4434eea06c8ba627da5e06e71d0",
+    "bytes": 2099
   },
   {
     "path": "scripts/run-claude.sh",
@@ -406,7 +426,12 @@
   },
   {
     "path": ".github/workflows/ci.yml",
-    "sha256": "de685070b843d9a10deb45f9491d03876f42b96ceae4d97803de8c3d6d5443a4",
-    "bytes": 367
+    "sha256": "ce80464e43e341c716617d9f8824ec4d22d8fa716b0951bb5751d594c5c98b8c",
+    "bytes": 722
+  },
+  {
+    "path": ".github/workflows/release.yml",
+    "sha256": "56462a125d85aad3e90c8f5abf7ed83d98a31996f3f8aadcf0f7f0aa415d3fec",
+    "bytes": 2056
   }
 ]

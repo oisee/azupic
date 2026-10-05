@@ -1,23 +1,31 @@
 # azupic
 
-**azupic** — небольшой Go-мост между Anthropic Messages API, используемым Claude Code, и Azure OpenAI Responses API. Один бинарник, стандартная библиотека Go, явный endpoint и deployment. Версия 0.1 проверена mock-тестами и короткой реальной беседой Claude Code через Azure Responses с thinking и повторными ходами. Исполнение локальных tools, интерактивное переключение effort и compaction пока проверены только частично или ожидают live-проверки.
+[Русская версия](README.RU.md)
 
-## Сборка и запуск
+**azupic** is a small Go bridge from the Anthropic Messages API used by Claude Code to Azure OpenAI Responses. One binary, the Go standard library, an explicit endpoint and deployment. Version 0.1 has been tested with local mocks and a short real Claude Code conversation through Azure Responses, including thinking and follow-up turns. Local tool execution, interactive effort changes and compaction still need further live validation.
 
-Требуется Go 1.24 или новее.
+## Downloads and releases
+
+Prebuilt binaries are provided for Linux, macOS and Windows, each on amd64 and arm64. Download an archive and `checksums.txt` from [GitHub Releases](https://github.com/oisee/azupic/releases). Archives contain the binary, license and both READMEs. macOS and Windows binaries are unsigned.
+
+Build all six locally with `python3 scripts/build-release.py v0.1.0`; output goes to `dist/`. CI builds the same archives on pushes and pull requests. Pushing a version tag runs tests, builds and checksums all targets, uploads to a draft release and publishes after every upload succeeds. The workflow can also be dispatched for an existing tag.
+
+## Build and run
+
+Requires Go 1.24 or newer.
 
 ```sh
 go build -buildvcs=false -o bin/azupic ./cmd/azupic
 export AZURE_RESPONSES_URL='https://RESOURCE.openai.azure.com/openai/v1/responses'
 export AZURE_DEPLOYMENT='YOUR_DEPLOYMENT'
-# AZURE_OPENAI_API_KEY должен быть задан в окружении.
+# Set AZURE_OPENAI_API_KEY in your environment.
 export REASONING_EFFORT=high
 ./bin/azupic
 ```
 
-Допустим и полный dated URL: `https://RESOURCE.openai.azure.com/openai/responses?api-version=YOUR_VERSION`. Мост отправляет URL буквально; `deployment` находится в поле `model` запроса. После 404 протокол и URL не перебираются. HTTP разрешён только для mock upstream на loopback.
+A full dated URL also works: `https://RESOURCE.openai.azure.com/openai/responses?api-version=YOUR_VERSION`. The bridge uses the URL literally and sends the deployment in the request's `model` field. It does not try alternative URLs or protocols after a 404. HTTP upstreams are allowed only on loopback for local mocks.
 
-В другом терминале:
+In another terminal:
 
 ```sh
 ANTHROPIC_BASE_URL=http://127.0.0.1:8080 \
@@ -26,67 +34,67 @@ ENABLE_TOOL_SEARCH=false \
 claude --model azupic
 ```
 
-Входное имя модели по умолчанию всегда переводится в `AZURE_DEPLOYMENT`. Не нужно называть Azure модель Claude-моделью или добавлять суффикс `[1m]`. Если Claude Code настроен на другой auth/provider, используйте отдельный профиль клиента и явно выбранную авторизацию для локального endpoint.
+By default, every incoming model name maps to `AZURE_DEPLOYMENT`. You do not need to name an Azure model after a Claude model or append `[1m]`. If Claude Code uses another authentication mode or provider, use a separate client profile with explicit authentication for the local endpoint. Avoid setting both `ANTHROPIC_API_KEY` and `ANTHROPIC_AUTH_TOKEN`.
 
-## Конфигурация
+## Configuration
 
-После задания `AZURE_RESPONSES_URL` готовый запуск azupic и Claude Code с deployment `gpt-6.1-sol`:
+After setting `AZURE_RESPONSES_URL`, launch both the bridge and Claude Code with deployment `gpt-6.1-sol`:
 
 ```sh
 bash scripts/run-claude.sh
 ```
 
-Скрипт задаёт переменные только своим процессам, использует существующий `AZURE_OPENAI_API_KEY`, запускает мост на `127.0.0.1:8080` и останавливает его после выхода из Claude. Лог: `.local/azupic.log`. Другой deployment можно выбрать через `AZUPIC_DEPLOYMENT`. Аргументы передаются Claude, например `bash scripts/run-claude.sh -p 'Ответь одним словом: OK'`. Нужны `curl` и разрешение среды на локальные TCP-сокеты.
+The script sets environment variables for its own processes, uses the existing `AZURE_OPENAI_API_KEY`, starts the bridge on `127.0.0.1:8080` and stops it when Claude exits. Logs go to `.local/azupic.log`. Choose another deployment with `AZUPIC_DEPLOYMENT`. Arguments are passed to Claude, for example `bash scripts/run-claude.sh -p 'Reply with one word: OK'`. Requires `curl` and permission to open local TCP sockets.
 
-| Переменная | Значение |
+| Variable | Purpose or default |
 | --- | --- |
-| `AZURE_RESPONSES_URL` | Обязательный полный URL Responses |
-| `AZURE_DEPLOYMENT` | Обязательное имя Azure deployment |
-| `AZURE_OPENAI_DEPLOYMENT` | Альтернативное имя для `AZURE_DEPLOYMENT`; если заданы оба, значения должны совпадать |
-| `AZURE_OPENAI_API_KEY` | Обязательный upstream credential |
-| `AZURE_AUTH_MODE` | `api-key` по умолчанию; `bearer` для явно заданного bearer credential, без обновления Entra token |
+| `AZURE_RESPONSES_URL` | Required full Responses URL |
+| `AZURE_DEPLOYMENT` | Required Azure deployment name |
+| `AZURE_OPENAI_DEPLOYMENT` | Alternative to `AZURE_DEPLOYMENT`; if both are set, values must match |
+| `AZURE_OPENAI_API_KEY` | Required upstream credential |
+| `AZURE_AUTH_MODE` | `api-key` by default; `bearer` for an explicitly supplied bearer credential, without Entra token refresh |
 | `LISTEN_ADDR` | `127.0.0.1:8080` |
-| `AZUPIC_TOKEN` | Отдельный клиентский токен; обязателен вне loopback |
-| `AZUPIC_MODEL_ALIASES` | JSON map, например `{"azupic":"deployment-a","fast":"deployment-b"}` |
-| `REASONING_EFFORT` | Опционально: `none`, `minimal`, `low`, `medium`, `high`, `xhigh`; фактическая поддержка зависит от deployment |
-| `AZUPIC_BODY_LIMIT` | Размер входа в байтах, по умолчанию 20 MiB |
-| `AZUPIC_RESPONSE_LIMIT` | Размер upstream SSE в байтах, по умолчанию 64 MiB |
-| `AZUPIC_TIMEOUT` | Общий лимит генерации, по умолчанию `10m` |
-| `AZUPIC_IDLE_TIMEOUT` | Ожидание данных upstream и записи downstream, по умолчанию `5m` |
+| `AZUPIC_TOKEN` | Separate client token; required when listening outside loopback |
+| `AZUPIC_MODEL_ALIASES` | JSON map, e.g. `{"azupic":"deployment-a","fast":"deployment-b"}` |
+| `REASONING_EFFORT` | Optional: `none`, `minimal`, `low`, `medium`, `high`, `xhigh`; deployment support varies |
+| `AZUPIC_BODY_LIMIT` | Incoming body limit in bytes; 20 MiB by default |
+| `AZUPIC_RESPONSE_LIMIT` | Upstream SSE limit in bytes; 64 MiB by default |
+| `AZUPIC_TIMEOUT` | Total generation timeout; `10m` by default |
+| `AZUPIC_IDLE_TIMEOUT` | Upstream read and downstream write idle timeout; `5m` by default |
 
-Входной токен принимается через `x-api-key` или `Authorization: Bearer`. Не используйте для него Azure key. Для публичного доступа обеспечьте TLS перед мостом.
+Client tokens are accepted through `x-api-key` or `Authorization: Bearer`. Use a separate token from the Azure key. Put TLS in front of the bridge if exposing it publicly.
 
-## Поддержка протокола
+## Protocol support
 
-`POST /v1/messages` возвращает Anthropic JSON или SSE по полю `stream`. Query `?beta=true` поддерживается. Upstream всегда использует Responses SSE. Inline system/developer text messages сохраняют роль и позицию в истории. Текст, отказ модели, обычные function tools, tool results, user images и images в tool results переводятся с сохранением порядка истории. Произвольные вложенные tool schemas сохраняются. Исполнение Read, Edit, Bash и MCP tools остаётся в Claude Code.
+`POST /v1/messages` returns Anthropic JSON or SSE according to `stream`. The `?beta=true` query is supported. Upstream requests always use Responses SSE. Inline system/developer text messages retain their role and position. Text, refusals, ordinary function tools, tool results, user images and images in tool results preserve history order. Nested tool schemas are retained. Claude Code executes Read, Edit, Bash and MCP tools.
 
-Encrypted reasoning переносится в `thinking.signature` через envelope `azupic:responses:v1:`. Envelope привязан к полному URL, deployment и credential; смена конфигурации требует новой сессии. Это контейнер для зашифрованного provider state, а не криптографическая подпись. Если Azure не возвращает encrypted state, мост сообщает ошибку. Обычные повторные ходы работают в live-сессии; replay в полном tool cycle и поведение compaction требуют live-проверки.
+Encrypted reasoning is carried in `thinking.signature` using an `azupic:responses:v1:` envelope scoped to the full URL, deployment and credential. Changing those settings requires a new session. The envelope contains encrypted provider state; it is not a cryptographic signature. Missing encrypted state is an error. Ordinary follow-up turns work in a live session; replay through a full tool cycle and compaction still need live validation.
 
-`max_tokens` переводится в `max_output_tokens`, который включает reasoning. `output_config.effort`, затем `thinking.effort`, затем `REASONING_EFFORT` определяют effort. `thinking.budget_tokens` принимается как подсказка клиента без перевода отдельного бюджета. `thinking.type=disabled` не гарантирует отключения Azure reasoning: действует выбранный effort, полученный summary сохраняется для replay.
+`max_tokens` maps to `max_output_tokens`, which includes reasoning. Effort priority is `output_config.effort`, then `thinking.effort`, then `REASONING_EFFORT`. `thinking.budget_tokens` is accepted as a client hint without translating a separate budget. `thinking.type=disabled` does not guarantee that Azure reasoning is disabled: the selected effort applies, and returned summaries are retained for replay.
 
-`output_config.format` с JSON schema переводится в Responses structured output. Anthropic cache breakpoints и metadata не отправляются upstream. Cached input считается отдельно: Azure input=100/cached=60 → Anthropic input=40/cache_read=60. Reasoning output повторно не прибавляется.
+`output_config.format` with a JSON schema maps to Responses structured output. Anthropic cache breakpoints and metadata are not forwarded. Cached input is accounted for separately: Azure input=100/cached=60 becomes Anthropic input=40/cache_read=60. Reasoning output is not added twice.
 
-Native hosted tools, deferred tool search, `tool_reference`, documents, роли кроме user/assistant/system/developer и неизвестные content blocks отклоняются с HTTP 400. `stop_sequences`, `top_p`, `top_k` не поддерживаются; пустые `stop_sequences` и default `temperature=1` допустимы. В `context_management.edits` допустимы `clear_thinking_20251015` и `clear_tool_uses_20250919`: мост сохраняет полную историю, логирует отсутствие очистки и не заявляет применённых edits. Это позволяет сохранить Responses reasoning replay; серверная очистка Anthropic не реализована. Другие стратегии, включая server-side compaction, отклоняются. Неизвестный semantic output Azure вызывает ошибку. Это начальная совместимость, а не полная реализация Anthropic API.
+Native hosted tools, deferred tool search, `tool_reference`, documents, roles other than user/assistant/system/developer and unknown content blocks return HTTP 400. `stop_sequences`, `top_p` and `top_k` are unsupported; empty `stop_sequences` and default `temperature=1` are accepted. `context_management.edits` accepts `clear_thinking_20251015` and `clear_tool_uses_20250919`, but retains the full history, logs that clearing was not applied and never claims applied edits. This preserves Responses reasoning replay; Anthropic server-side clearing is not implemented. Other strategies, including server-side compaction, are rejected. Unknown semantic Azure output is an error. This is initial compatibility, not a complete Anthropic API implementation.
 
-`POST /v1/messages/count_tokens` считает приблизительно по преобразованному запросу, включая schemas и signatures, с ответным заголовком `x-azupic-token-count: estimate`. Это не tokenizer Azure и не гарантия вместимости контекста; image tokens также оцениваются неточно. `GET /healthz` проверяет только процесс.
+`POST /v1/messages/count_tokens` estimates tokens from the transformed request, including schemas and signatures, with response header `x-azupic-token-count: estimate`. It is not an Azure tokenizer or a guarantee that a request fits the context window; image estimates are also imprecise. `GET /healthz` checks the process only.
 
-HTTP ошибки Azure сохраняют status и `Retry-After`, без содержимого upstream body. Ошибки после начала SSE идут событием `error` без успешного `message_stop`. Обрыв до terminal event считается ошибкой. Автоматических повторов POST нет. Отмена клиента закрывает upstream. Логи содержат endpoint с замаскированными query параметрами, deployment, status и `apim-request-id`, без ключей и истории.
+Azure HTTP errors preserve the status and `Retry-After`, without forwarding the upstream error body. Errors after SSE starts produce an `error` event without a successful `message_stop`. EOF before a terminal event is an error. POST requests are never automatically retried. Client cancellation closes upstream requests. Logs contain the endpoint with redacted query parameters, deployment, status and `apim-request-id`, without keys or conversation history.
 
-## Изменение effort
+## Change reasoning effort
 
-Для запуска из любой папки добавьте в `~/.bashrc` строку `source /path/to/azupic/scripts/bash-integration.sh`. После перезагрузки shell появится команда `claude-az`, например `claude-az --effort high`. Она запускает мост и Claude из текущей рабочей папки, очищая унаследованные настройки других провайдеров в subshell. Настройки родительского терминала сохраняются.
+To launch from any directory, add `source /path/to/azupic/scripts/bash-integration.sh` to `~/.bashrc`. Reload your shell to use `claude-az`, for example `claude-az --effort high`. It starts the bridge and Claude in your current working directory and clears inherited provider settings in a subshell, preserving the parent terminal's environment.
 
-Скрипт включает `CLAUDE_CODE_ALWAYS_ENABLE_EFFORT=1` для имени `azupic` и убирает фиксированный `CLAUDE_CODE_EFFORT_LEVEL`, чтобы он не перекрывал интерактивную настройку. Начальный уровень можно передать как `bash scripts/run-claude.sh --effort high`. В работающем Claude используйте `/effort low`, `/effort medium`, `/effort high` или `/effort xhigh`. Новое значение применяется при следующем запросе без перезапуска azupic. Azure deployment должен поддерживать выбранный уровень.
+The launcher enables `CLAUDE_CODE_ALWAYS_ENABLE_EFFORT=1` for the custom `azupic` model and unsets fixed `CLAUDE_CODE_EFFORT_LEVEL` so it does not override interactive changes. Start with `bash scripts/run-claude.sh --effort high`. During a session, use `/effort low`, `/effort medium`, `/effort high` or `/effort xhigh`. The new value applies to the next request without restarting azupic. Your Azure deployment must support the selected level.
 
-Claude `max` переводится в Azure `xhigh`; остальные уровни передаются напрямую. `/effort auto` снимает выбор клиента: мост использует `REASONING_EFFORT`, если он задан при запуске, иначе default Azure. Лог `.local/azupic.log` содержит `generation request` с `reasoning_effort`. Изменение effort не меняет scope reasoning signature. Интерактивную передачу effort реальным Claude ещё нужно подтвердить по этим логам.
+Claude `max` maps to Azure `xhigh`; other levels pass through. `/effort auto` clears the client selection: the bridge uses its startup `REASONING_EFFORT`, if set, or Azure's default. `.local/azupic.log` records `generation request` with `reasoning_effort`. Effort changes do not alter the reasoning signature scope. Interactive effort transmission from the real Claude client still needs confirmation in these logs.
 
-## Проверки
+## Checks
 
 ```sh
 go test -race ./...
 go vet ./...
 ```
 
-Тесты используют настоящий HTTP/1.1 через `net.Pipe`, поэтому не требуют TCP-портов или Azure. Проверяются tool/reasoning replay, call IDs, порядок истории, параллельные tools, задержанное имя, повреждённый JSON, несовпадение streamed/final arguments, дедупликация финального текста, usage, max_tokens, неизвестные capabilities, CRLF/UTF-8 на всех split points, literal URL и auth, HTTP 404/429, EOF, idle timeout и отмена клиента.
+Tests use real HTTP/1.1 over `net.Pipe`, requiring neither TCP ports nor Azure. They cover tool/reasoning replay, call IDs, history order, parallel tools, delayed names, invalid JSON, streamed/final argument disagreement, final text deduplication, usage, max_tokens, unsupported capabilities, CRLF/UTF-8 at every split point, literal URLs and authentication, HTTP 404/429, EOF, idle timeouts and client cancellation.
 
-Источник исследования: [контракт](docs/anthropic-azure-responses-contract.md) и MIT snapshot [dywongcloud/claude-code-proxy](reference/SOURCE.json). Go-код написан отдельно; reference оставлен без исправлений. Требование replay reasoning при tools описано в [OpenAI reasoning guide](https://developers.openai.com/api/docs/guides/reasoning).
+Research sources: the [contract (Russian)](docs/anthropic-azure-responses-contract.md) and MIT [dywongcloud/claude-code-proxy snapshot](reference/SOURCE.json). The Go implementation was written separately; the reference snapshot remains unpatched. The reasoning replay requirement for tools is described in the [OpenAI reasoning guide](https://developers.openai.com/api/docs/guides/reasoning).

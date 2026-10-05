@@ -14,11 +14,13 @@ import (
 	"azupic/internal/bridge"
 )
 
+var Version = "0.1.0"
+
 func main() {
 	version := flag.Bool("version", false, "print version")
 	flag.Parse()
 	if *version {
-		fmt.Println("azupic 0.1.0")
+		fmt.Println("azupic " + Version)
 		return
 	}
 	c, err := bridge.LoadConfig()

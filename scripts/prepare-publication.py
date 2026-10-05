@@ -10,13 +10,13 @@ import re
 import shutil
 
 ROOT = Path(__file__).resolve().parent.parent
-FILES = ('.gitignore', 'go.mod', 'LICENSE', 'README.md')
+FILES = ('.gitignore', 'go.mod', 'LICENSE', 'README.md', 'README.RU.md')
 DIRS = ('cmd', 'internal', 'docs', 'reference', 'scripts', '.github')
 
 
 def excluded(path):
     parts = path.relative_to(ROOT).parts
-    return (any(part in ('.git', '.local', '.aws', '.codex', '.agents',
+    return (any(part in ('.git', '.local', '.aws', '.codex', '.agents', 'dist',
                          '__pycache__', 'node_modules') for part in parts)
             or path.name == 'HANDOVER.md'
             or path.name.endswith(('.log', '.pyc', '.pem', '.key'))
